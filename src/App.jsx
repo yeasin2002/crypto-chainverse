@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Nav from "./components/layout/Nav";
 
-import Index from "./pages/Home/";
+import Index from "./pages/Home/Index";
 import News from "./pages/News/News";
 import CryptoCurrencies from "./pages/cryptoCurrencies/CryptoCurrencies";
 
