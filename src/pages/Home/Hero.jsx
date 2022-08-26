@@ -44,9 +44,9 @@ const Hero = () => {
                 <Link
                   to="/crypto"
                   href="#"
-                  className="block px-3 py-2 text-sm font-semibold text-center text-gray-700 transition-colors duration-200 transform bg-gray-200 rounded-md  hover:bg-gray-300"
+                  className="block px-3 border-2  border-slate-800 py-2 text-sm font-semibold text-center text-slate-800 transition-colors duration-200 transform bg-gray-200 rounded-md hover:text-slate-100  hover:bg-slate-800 hover:border-slate-200"
                 >
-                  Learn More
+                  See Crypto Currencies
                 </Link>
               </div>
             </div>
@@ -63,56 +63,71 @@ const Hero = () => {
           </div>
         </div>
         <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-2 justify-center">
-          {IsLoading ? (
-            <div className="w-full h-20flex justify-center content-center  bg-slate-900">
-              <Loading loadingImages={LoaderImg} />
-            </div>
-          ) : (
-            ""
-          )}
-          {DataResult.length === 0 ? (
-            ""
-          ) : (
+          {
             <>
               <DataBox
                 title="Total Crypto"
                 iconValue={<Info />}
-                dataValue={DataResult.data.stats.total}
+                dataValue={
+                  DataResult.length === 0
+                    ? "loading"
+                    : DataResult.data.stats.total
+                }
                 colorStyle=" border-teal-600"
               />
 
               <DataBox
                 title="Total24h Volume"
                 iconValue={<Shop />}
-                dataValue={DataResult.data.stats.total24hVolume}
+                dataValue={
+                  DataResult.length === 0
+                    ? "loading"
+                    : DataResult.data.stats.total24hVolume
+                }
                 colorStyle=" border-teal-600"
               />
               <DataBox
                 title="Total Coins"
                 iconValue={<Money />}
-                dataValue={DataResult.data.stats.totalCoins}
+                dataValue={
+                  DataResult.length === 0
+                    ? "loading"
+                    : DataResult.data.stats.totalCoins
+                }
                 colorStyle=" border-teal-600"
               />
               <DataBox
                 title="Total Exchanges"
                 iconValue={<Speed />}
-                dataValue={DataResult.data.stats.totalExchanges}
+                dataValue={
+                  DataResult.length === 0
+                    ? "loading"
+                    : DataResult.data.stats.totalExchanges
+                }
                 colorStyle=" border-teal-600"
               />
               <DataBox
                 title="Total Market Cap"
                 iconValue={<Chart />}
-                dataValue={DataResult.data.stats.totalMarketCap}
+                dataValue={
+                  DataResult.length === 0
+                    ? "loading"
+                    : DataResult.data.stats.totalMarketCap
+                }
                 colorStyle=" border-teal-600"
               />
               <DataBox
                 title="Total Markets"
                 iconValue={<Cash />}
-                dataValue={DataResult.data.stats.totalMarkets}
+                dataValue={
+                  DataResult.length === 0
+                    ? "loading"
+                    : DataResult.data.stats.totalMarkets
+                }
                 colorStyle=" border-teal-600"
               />
             </>
-          )}
+          }
         </div>
         <div className="mb-6 w-full h-4"></div>
       </section>

@@ -5,7 +5,6 @@ import Data from "./Data";
 import Loading from "../../components/layout/Loading";
 import AlertBox from "../../components/layout/AlertBox";
 import Search from "../../components/layout/Search";
-import loadingImages from "../../assets/loader/Flowing gradient.gif";
 
 const GetResult = () => {
   const [UserSearchInput, setUserSearchInput] = useState("");
@@ -20,10 +19,10 @@ const GetResult = () => {
       <div>
         <Search setUserSearchInput={setUserSearchInput} />
       </div>
-      {IsLoading ? <Loading loadingImages={loadingImages} /> : null}
+      {IsLoading ? <Loading /> : null}
       {IsError ? <AlertBox /> : null}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        {DataResult.length === 0 
+        {DataResult.length === 0
           ? ""
           : DataResult.data.coins.map((value) => {
               return (

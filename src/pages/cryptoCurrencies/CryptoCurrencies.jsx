@@ -3,7 +3,7 @@ import GetResult from "./GetResult";
 
 const CryptoCurrencies = () => {
   return (
-    <div>
+    <div className="bg-slate-200 min-h-screen">
       <GetResult />
     </div>
   );

@@ -1,9 +1,10 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import FlowingGradient from "../../assets/loader/Flowing gradient.gif";
+// import FlowingGradient from "../../assets/loader/Flowing gradient.gif";
+import loaderSvg from "../../assets/loader/Ripple-1s-200px.svg";
 
-const Loading = ({ loadingImages = FlowingGradient }) => {
+const Loading = ({ loadingImages = loaderSvg }) => {
   return (
     <>
       <AnimatePresence>

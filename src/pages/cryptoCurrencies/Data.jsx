@@ -8,7 +8,7 @@ const Data = ({ name, iconImg, value, color }) => {
         style={{
           boxShadow: `0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px ${color}`,
         }}
-        className={`max-w-md px-8 py-4 mx-auto mt-16  rounded-lg  dark:bg-gray-800`}
+        className={`max-w-md px-8 py-4 mx-auto mt-16  rounded-lg bg-gray-100  dark:bg-gray-800`}
       >
         <div className="flex justify-center -mt-16 md:justify-end">
           <img

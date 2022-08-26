@@ -6,9 +6,10 @@ import Loading from "../../components/layout/Loading";
 
 const News = () => {
   const [UserSearchInput, setUserSearchInput] = useState("crypto");
-
+  //
   // data fetching
   let url = `https://bing-news-search1.p.rapidapi.com/news/search?q=${UserSearchInput}&safeSearch=Off&textFormat=Raw`;
+
   const optionsSearch = {
     method: "GET",
     headers: {
@@ -17,11 +18,11 @@ const News = () => {
       "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
     },
   };
-  const { DataResult, IsLoading, IsError } = useFetch(url, optionsSearch, UserSearchInput);
+  const { DataResult, IsLoading, IsError } = useFetch(url, optionsSearch);
 
   return (
-    <div>
-      <div className="flex justify-between overflow-x-hidden">
+    <div className="bg-gray-200 min-h-screen">
+      <div className="flex flex-col items-center sm:flex-row    justify-between overflow-x-hidden">
         <h2 className="text-slate-600 font-bold text-2xl mx-2 my-4">
           Latest Crypto News
         </h2>

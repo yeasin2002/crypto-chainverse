@@ -4,9 +4,9 @@ const NewsCard = ({ ampUrl, description, contentUrl, datePublished, name }) => {
   return (
     <div className="md:grid ">
       <div className="flex justify-center mx-2 my-4">
-        <div className="flex flex-col sm:flex-row md:max-w-xl rounded-lg bg-slate-900 shadow-lg">
+        <div className="flex flex-col  md:max-w-xl rounded-lg bg-slate-900 shadow-lg">
           <img
-            className=" w-full rounded-t-lg md:rounded-none md:rounded-l-lg"
+            className=" w-10/12 mx-auto  mt-2 rounded-t-md h-[15rem] rounded-b-lg md:rounded-none md:rounded-l-lg"
             src={contentUrl}
             alt="images"
           />

@@ -8,7 +8,7 @@ const options = {
   },
 };
 
-const useFetch = (url, secondPara = options, dependency = "") => {
+const useFetch = (url, secondPara = options) => {
   const [DataResult, setDataResult] = useState([]);
   const [IsLoading, setIsLoading] = useState(true);
   const [IsError, setIsIsError] = useState(null);
@@ -27,7 +27,6 @@ const useFetch = (url, secondPara = options, dependency = "") => {
   };
   useEffect(() => {
     fetchValue();
-
     return fetchValue();
   }, []);
   return { DataResult, IsLoading, IsError };

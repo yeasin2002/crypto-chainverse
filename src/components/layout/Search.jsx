@@ -6,7 +6,7 @@ const Search = ({ setUserSearchInput, doAnimations }) => {
   return (
     <>
       <motion.div
-        className="flex justify-end m-2"
+        className="flex justify-end p-2"
         initial={{
           x: doAnimations ? 100 : 0,
           opacity: doAnimations ? 0 : 1,
