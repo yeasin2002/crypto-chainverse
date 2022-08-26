@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const AlertBox = () => {
+  const [IsThere, setIsThere] = useState(true);
   return (
     <>
-      <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: IsThere ? 1 : 0, x: IsThere ? 0 : -100 }}
+        onClick={() => {
+          setIsThere((IsThere) => !IsThere);
+        }}
+        className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
+      >
         <div className="flex items-center justify-center w-12 bg-red-500">
           <svg
             className="w-6 h-6 text-white fill-current"
@@ -20,11 +29,11 @@ const AlertBox = () => {
               Error
             </span>
             <p className="text-sm text-gray-600 dark:text-gray-200">
-              Your email is already used!
+              There is something wrong
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

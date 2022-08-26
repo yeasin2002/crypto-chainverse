@@ -3,19 +3,20 @@ import useFetch from "../../hooks/useFetch";
 
 import BannerImg from "../../assets/images/bitcoin-cloud-01.png";
 import DataBox from "../../components/util/DataBox";
-import { Info, Shop, Money, Speed } from "../../components/layout/Icon";
+import {
+  Info,
+  Shop,
+  Money,
+  Speed,
+  Chart,
+  Cash,
+} from "../../components/layout/Icon";
 
 const Hero = () => {
   const [StatsValue, setStatsValue] = useState("");
   const { DataResult, IsLoading, IsError } = useFetch(
     "https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0"
   );
-
-  // if (DataResult.length === 0) {
-  //   console.log("its 0");
-  // } else {
-  //   console.log(DataResult.data);
-  // }
 
   return (
     <>
@@ -68,33 +69,34 @@ const Hero = () => {
                 dataValue={DataResult.data.stats.total}
                 colorStyle=" border-teal-600"
               />
+
               <DataBox
                 title="Total24h Volume"
-                iconValue={<Info />}
+                iconValue={<Shop />}
                 dataValue={DataResult.data.stats.total24hVolume}
                 colorStyle=" border-teal-600"
               />
               <DataBox
                 title="Total Coins"
-                iconValue={<Info />}
+                iconValue={<Money />}
                 dataValue={DataResult.data.stats.totalCoins}
                 colorStyle=" border-teal-600"
               />
               <DataBox
                 title="Total Exchanges"
-                iconValue={<Info />}
+                iconValue={<Speed />}
                 dataValue={DataResult.data.stats.totalExchanges}
                 colorStyle=" border-teal-600"
               />
               <DataBox
                 title="Total Market Cap"
-                iconValue={<Info />}
+                iconValue={<Chart />}
                 dataValue={DataResult.data.stats.totalMarketCap}
                 colorStyle=" border-teal-600"
               />
               <DataBox
                 title="Total Markets"
-                iconValue={<Info />}
+                iconValue={<Cash />}
                 dataValue={DataResult.data.stats.totalMarkets}
                 colorStyle=" border-teal-600"
               />

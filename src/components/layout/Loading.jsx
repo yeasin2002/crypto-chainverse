@@ -1,10 +1,21 @@
 import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const Loading = () => {
+import FlowingGradient from "../../assets/loader/Flowing gradient.gif";
+
+const Loading = ({ loadingImages }) => {
   return (
-    <div className="text-center w-full h-full">
-      <p className="text-bolder text-2xl"> Loading.........</p>
-    </div>
+    <>
+      <AnimatePresence>
+        <div className=" flex justify-center items-center  content-center  w-full h-full">
+          <img
+            className="w-20 h-20"
+            src={loadingImages}
+            alt="Loading.........</"
+          />
+        </div>
+      </AnimatePresence>
+    </>
   );
 };
 
