@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
+import { Link } from "react-router-dom";
 
+import LoaderImg from "../../assets/loader/Intersection.gif";
+import Loading from "../../components/layout/Loading";
 import BannerImg from "../../assets/images/bitcoin-cloud-01.png";
 import DataBox from "../../components/util/DataBox";
 import {
@@ -38,12 +41,13 @@ const Hero = () => {
               </p>
 
               <div className="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
-                <a
+                <Link
+                  to="/crypto"
                   href="#"
                   className="block px-3 py-2 text-sm font-semibold text-center text-gray-700 transition-colors duration-200 transform bg-gray-200 rounded-md  hover:bg-gray-300"
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -59,6 +63,13 @@ const Hero = () => {
           </div>
         </div>
         <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-2 justify-center">
+          {IsLoading ? (
+            <div className="w-full h-20flex justify-center content-center  bg-slate-900">
+              <Loading loadingImages={LoaderImg} />
+            </div>
+          ) : (
+            ""
+          )}
           {DataResult.length === 0 ? (
             ""
           ) : (
@@ -103,6 +114,7 @@ const Hero = () => {
             </>
           )}
         </div>
+        <div className="mb-6 w-full h-4"></div>
       </section>
     </>
   );

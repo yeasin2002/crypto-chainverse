@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 const Data = ({ name, iconImg, value, color }) => {
   return (
     <>
-      <motion.div
+      <div
         style={{
-          boxShadow: `0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px ${color}/0.5`,
+          boxShadow: `0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px ${color}`,
         }}
         className={`max-w-md px-8 py-4 mx-auto mt-16  rounded-lg  dark:bg-gray-800`}
       >
@@ -36,7 +36,7 @@ const Data = ({ name, iconImg, value, color }) => {
             {name}
           </p>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };

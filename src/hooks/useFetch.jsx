@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 
-const useFetch = (url) => {
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "508a20f86bmsh3a8ae2c62ebb4ffp1e84aajsn1ecf49b70c48",
+    "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
+  },
+};
+
+const useFetch = (url, secondPara = options, dependency = "") => {
   const [DataResult, setDataResult] = useState([]);
   const [IsLoading, setIsLoading] = useState(true);
   const [IsError, setIsIsError] = useState(null);
 
-  useEffect(() => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "508a20f86bmsh3a8ae2c62ebb4ffp1e84aajsn1ecf49b70c48",
-        "X-RapidAPI-Host": "coinranking1.p.rapidapi.com",
-      },
-    };
-
-    fetch(url, options)
+  const fetchValue = () => {
+    fetch(url, secondPara)
       .then((response) => response.json())
       .then((response) => {
         setDataResult(response);
@@ -24,6 +24,11 @@ const useFetch = (url) => {
         setIsIsError(err.message);
         setIsLoading(false);
       });
+  };
+  useEffect(() => {
+    fetchValue();
+
+    return fetchValue();
   }, []);
   return { DataResult, IsLoading, IsError };
 };

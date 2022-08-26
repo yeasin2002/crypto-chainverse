@@ -3,7 +3,6 @@ import { SearchIcon } from "./Icon";
 import { motion } from "framer-motion";
 
 const Search = ({ setUserSearchInput, doAnimations }) => {
-  console.log(doAnimations);
   return (
     <>
       <motion.div

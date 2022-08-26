@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import NewsCard from "./NewsCard";
 import Search from "../../components/layout/Search";
+import Loading from "../../components/layout/Loading";
 
 const News = () => {
-  const [UserSearchInput, setUserSearchInput] = useState("");
+  const [UserSearchInput, setUserSearchInput] = useState("crypto");
 
-  //   const { DataResult, IsLoading, IsError } = useFetch(
-  //     "https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0"
-  //   );
-  console.log(UserSearchInput);
+  // data fetching
+  let url = `https://bing-news-search1.p.rapidapi.com/news/search?q=${UserSearchInput}&safeSearch=Off&textFormat=Raw`;
+  const optionsSearch = {
+    method: "GET",
+    headers: {
+      "X-BingApis-SDK": "true",
+      "X-RapidAPI-Key": "508a20f86bmsh3a8ae2c62ebb4ffp1e84aajsn1ecf49b70c48",
+      "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+    },
+  };
+  const { DataResult, IsLoading, IsError } = useFetch(url, optionsSearch, UserSearchInput);
+
   return (
     <div>
       <div className="flex justify-between overflow-x-hidden">
@@ -18,9 +27,25 @@ const News = () => {
         </h2>
         <Search setUserSearchInput={setUserSearchInput} doAnimations />
       </div>
-      <div>
-        {UserSearchInput}
-        <NewsCard />
+      {IsLoading ? <Loading /> : ""}
+      <div className="grid lg:grid-cols-2">
+        {!IsLoading
+          ? DataResult.value.map((data, index) => {
+              if (!data.image) return;
+              return (
+                <div key={index}>
+                  <NewsCard
+                    ampUrl={data.url}
+                    description={data.description}
+                    contentUrl={data.image.thumbnail.contentUrl}
+                    datePublished={data.datePublished}
+                    name={data.name}
+                    // name={data.name}
+                  />
+                </div>
+              );
+            })
+          : ""}
       </div>
     </div>
   );
