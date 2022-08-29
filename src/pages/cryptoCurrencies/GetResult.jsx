@@ -32,6 +32,14 @@ const GetResult = () => {
                     name={value.name}
                     iconImg={value.iconUrl}
                     color={value.color}
+                    price={value.price}
+                    marketCap={value.marketCap}
+                    rank={value.rank}
+                    coinrankingUrl={value.coinrankingUrl}
+                    change={value.change}
+                    Volume={value["24hVolume"]}
+                    symbol={value.symbol}
+                    sparkline={value.sparkline}
                   />
                 </div>
               );

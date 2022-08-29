@@ -13,6 +13,7 @@ import {
   Speed,
   Chart,
   Cash,
+  Spinier,
 } from "../../components/layout/Icon";
 
 const Hero = () => {
@@ -65,13 +66,18 @@ const Hero = () => {
         <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-2 justify-center">
           {
             <>
+              {/*  */}
               <DataBox
                 title="Total Crypto"
                 iconValue={<Info />}
                 dataValue={
-                  DataResult.length === 0
-                    ? "loading"
-                    : DataResult.data.stats.total
+                  DataResult.length === 0 ? (
+                    <div className="animate-spin w-5 h-5">
+                      <Spinier />
+                    </div>
+                  ) : (
+                    DataResult.data.stats.total
+                  )
                 }
                 colorStyle=" border-teal-600"
               />
@@ -80,9 +86,13 @@ const Hero = () => {
                 title="Total24h Volume"
                 iconValue={<Shop />}
                 dataValue={
-                  DataResult.length === 0
-                    ? "loading"
-                    : DataResult.data.stats.total24hVolume
+                  DataResult.length === 0 ? (
+                    <div className="animate-spin w-5 h-5">
+                      <Spinier />
+                    </div>
+                  ) : (
+                    DataResult.data.stats.total24hVolume
+                  )
                 }
                 colorStyle=" border-teal-600"
               />
@@ -90,9 +100,13 @@ const Hero = () => {
                 title="Total Coins"
                 iconValue={<Money />}
                 dataValue={
-                  DataResult.length === 0
-                    ? "loading"
-                    : DataResult.data.stats.totalCoins
+                  DataResult.length === 0 ? (
+                    <div className="animate-spin w-5 h-5">
+                      <Spinier />
+                    </div>
+                  ) : (
+                    DataResult.data.stats.totalCoins
+                  )
                 }
                 colorStyle=" border-teal-600"
               />
@@ -100,9 +114,13 @@ const Hero = () => {
                 title="Total Exchanges"
                 iconValue={<Speed />}
                 dataValue={
-                  DataResult.length === 0
-                    ? "loading"
-                    : DataResult.data.stats.totalExchanges
+                  DataResult.length === 0 ? (
+                    <div className="animate-spin w-5 h-5">
+                      <Spinier />
+                    </div>
+                  ) : (
+                    DataResult.data.stats.totalExchanges
+                  )
                 }
                 colorStyle=" border-teal-600"
               />
@@ -110,9 +128,13 @@ const Hero = () => {
                 title="Total Market Cap"
                 iconValue={<Chart />}
                 dataValue={
-                  DataResult.length === 0
-                    ? "loading"
-                    : DataResult.data.stats.totalMarketCap
+                  DataResult.length === 0 ? (
+                    <div className="animate-spin w-5 h-5">
+                      <Spinier />
+                    </div>
+                  ) : (
+                    DataResult.data.stats.totalMarketCap
+                  )
                 }
                 colorStyle=" border-teal-600"
               />
@@ -120,9 +142,13 @@ const Hero = () => {
                 title="Total Markets"
                 iconValue={<Cash />}
                 dataValue={
-                  DataResult.length === 0
-                    ? "loading"
-                    : DataResult.data.stats.totalMarkets
+                  DataResult.length === 0 ? (
+                    <div className="animate-spin w-5 h-5">
+                      <Spinier />
+                    </div>
+                  ) : (
+                    DataResult.data.stats.totalMarkets
+                  )
                 }
                 colorStyle=" border-teal-600"
               />

@@ -1,17 +1,19 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
 import CryptoLogo from "../../assets/images/cryptoLogo.svg";
+
 const Nav = () => {
   return (
     <div>
       <nav className="bg-slate-900  shadow ">
         <div className=" px-6 py-4 mx-auto flex justify-between items-center">
           <div className="flex items-center justify-between">
-            <div>
+            <Link to={"/"}>
               <p className="text-2xl w-10 font-bold bg-gray-200 rounded-full transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-200 dark:hover:text-gray-300">
                 <img className="w-10" src={CryptoLogo} alt="logo" />
               </p>
-            </div>
+            </Link>
           </div>
 
           <div className=" md:flex">

@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
-  .active {
-    @apply text-teal-600;
+@layer components {
+  .cryptoKey {
+    @apply text-blue-600  text-xl font-bold px-2;
   }
-} */
-
+  .cryptoValueDetails {
+    @apply text-slate-600  text-lg  px-1;
+  }
+}
 .active {
   color: teal;
 }
