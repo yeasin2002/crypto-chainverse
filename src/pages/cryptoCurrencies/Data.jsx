@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Data = (props) => {
   const {
-    name,
-    iconImg,
-    color,
-    symbol,
-    price,
-    marketCap,
-    rank,
-    coinrankingUrl,
+    HourVolume,
+    btcPrice,
     change,
-    Volume,
+    coinrankingUrl,
+    color,
+    iconImg,
+    listedAt,
+    lowVolume,
+    marketCap,
+    name,
+    price,
+    rank,
+    symbol,
+    tier,
+
     sparkline,
     value,
   } = props;
@@ -20,14 +26,12 @@ const Data = (props) => {
   return (
     <>
       <motion.div
-        initial={{
-          x: rank % 2 == 0 ? 100 : -100,
-          y: rank % 2 == 0 ? 100 : -100,
-        }}
-        animate={{
-          x: 0,
-          y: 0,
-        }}
+        // initial={{
+        //   x: rank % 2 == 0 ? 100 : -100,
+        // }}
+        // animate={{
+        //   x: 0,
+        // }}
         style={{
           boxShadow: `0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px ${color}`,
         }}
@@ -53,19 +57,11 @@ const Data = (props) => {
             </p>
             <p>
               <span className="cryptoKey">Price</span>:
-              <span className="cryptoValueDetails">{price}</span>
+              <span className="cryptoValueDetails">{price} USD </span>
             </p>
             <p>
               <span className="cryptoKey">Market Capital</span>:
               <span className="cryptoValueDetails  ">{marketCap}</span>
-            </p>
-            <p>
-              <span className="cryptoKey">Change</span>:
-              <span className="cryptoValueDetails">{change}</span>
-            </p>
-            <p>
-              <span className="cryptoKey">Volume</span>:
-              <span className="cryptoValueDetails">{Volume}</span>
             </p>
           </div>
         </div>
@@ -77,6 +73,31 @@ const Data = (props) => {
           >
             {symbol}
           </p>
+        </div>
+        <div>
+          <Link
+            state={{
+              HourVolume,
+              btcPrice,
+              change,
+              coinrankingUrl,
+              color,
+              iconImg,
+              listedAt,
+              lowVolume,
+              marketCap,
+              name,
+              price,
+              rank,
+              symbol,
+              tier,
+              sparkline,
+            }}
+            to={`/cryptodetails/${name}`}
+            className="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-slate-700 rounded-md hover:bg-slate-500 focus:outline-none focus:ring focus:ring-gray-900 focus:ring-opacity-80"
+          >
+            Learn more
+          </Link>
         </div>
       </motion.div>
     </>

@@ -21,7 +21,7 @@ const GetResult = () => {
       </div>
       {IsLoading ? <Loading /> : null}
       {IsError ? <AlertBox /> : null}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {DataResult.length === 0
           ? ""
           : DataResult.data.coins.map((value) => {
@@ -29,16 +29,20 @@ const GetResult = () => {
                 <div key={value.uuid}>
                   <Data
                     value={value}
-                    name={value.name}
-                    iconImg={value.iconUrl}
-                    color={value.color}
-                    price={value.price}
-                    marketCap={value.marketCap}
-                    rank={value.rank}
-                    coinrankingUrl={value.coinrankingUrl}
+                    HourVolume={value["24hVolume"]}
+                    btcPrice={value.btcPrice}
                     change={value.change}
-                    Volume={value["24hVolume"]}
+                    coinrankingUrl={value.coinrankingUrl}
+                    color={value.color}
+                    iconImg={value.iconUrl}
+                    listedAt={value.listedAt}
+                    lowVolume
+                    marketCap={value.marketCap}
+                    name={value.name}
+                    price={value.price}
+                    rank={value.rank}
                     symbol={value.symbol}
+                    tier={value.tier}
                     sparkline={value.sparkline}
                   />
                 </div>
