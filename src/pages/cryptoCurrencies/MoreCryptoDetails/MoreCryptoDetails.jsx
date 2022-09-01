@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  Cash,
   HandleDollar,
   BitcoinLogo,
   Ranking,
   Time,
   Market,
 } from "../../../components/layout/Icon";
+import useFetch from "../../../hooks/useFetch";
+import Calculator from "./Calculator";
 
 const MoreCryptoDetails = () => {
   const location = useLocation();
   const {
+    id,
     HourVolume,
     btcPrice,
     change,
@@ -27,8 +29,9 @@ const MoreCryptoDetails = () => {
     symbol,
     tier,
     sparkline,
+    value,
   } = location.state;
-  // console.log(location.state);
+
   const statisticsData = [
     {
       name: "price to USD",
@@ -51,11 +54,27 @@ const MoreCryptoDetails = () => {
       icon: <Time />,
     },
     {
-      name: "Market cap",
+      name: "Market Capital",
       status: +marketCap,
       icon: <Market />,
     },
   ];
+
+  /* more data  */
+  // const options = {
+  //   method: "GET",
+  //   url: "https://api.coinranking.com/v2/coin/Qwsogvtv82FCd",
+  //   headers: {
+  //     "x-access-token": "your-api-key",
+  //   },
+  // };
+
+  // const { DataResult, IsLoading, IsError } = useFetch(
+  //   `https://api.coinranking.com/v2/coin/${id}`,
+  //   options
+  // );
+  // console.log(DataResult);
+  // console.log(`https://api.coinranking.com/v2/coin/${id}`);
 
   return (
     <div>
@@ -108,7 +127,21 @@ const MoreCryptoDetails = () => {
             );
           })}
         </div>
+        <div>
+          <p className="px-2 py-4 text-lg md:text-xl font-semibold md:font-bold">
+            More In
+            <a
+              href={coinrankingUrl}
+              target="_blank"
+              className="text-blue-800 mx-2"
+            >
+              Coin Rank
+            </a>
+          </p>
+        </div>
       </div>
+      <hr />
+      {/* <Calculator /> */}
     </div>
   );
 };

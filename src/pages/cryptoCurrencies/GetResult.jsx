@@ -9,11 +9,16 @@ import Search from "../../components/layout/Search";
 const GetResult = () => {
   const [UserSearchInput, setUserSearchInput] = useState("");
   const [SearchResult, setSearchResult] = useState("");
+  const [AllValue, setAllValue] = useState([]);
 
   const { DataResult, IsLoading, IsError } = useFetch(
     "https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0"
   );
-
+  if (!DataResult.length === 0) {
+    setAllValue(DataResult.data.coins);
+  } else {
+    console.log("false ");
+  }
   return (
     <div>
       <div>
@@ -28,6 +33,7 @@ const GetResult = () => {
               return (
                 <div key={value.uuid}>
                   <Data
+                    id={value.uuid}
                     value={value}
                     HourVolume={value["24hVolume"]}
                     btcPrice={value.btcPrice}
@@ -44,6 +50,7 @@ const GetResult = () => {
                     symbol={value.symbol}
                     tier={value.tier}
                     sparkline={value.sparkline}
+                    AllValue={AllValue}
                   />
                 </div>
               );

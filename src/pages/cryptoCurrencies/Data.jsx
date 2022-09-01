@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Data = (props) => {
   const {
+    id,
     HourVolume,
     btcPrice,
     change,
@@ -35,7 +36,7 @@ const Data = (props) => {
         style={{
           boxShadow: `0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px ${color}`,
         }}
-        className={`max-w-md px-8 mx-2 py-4  mt-16 group  rounded-lg bg-gray-100  dark:bg-gray-800`}
+        className={`max-w-md px-6  md:px-8 mx-2 py-4  mt-16 group  rounded-lg bg-gray-100  dark:bg-gray-800`}
       >
         <div className="flex justify-center -mt-16 md:justify-end ">
           <img
@@ -49,7 +50,7 @@ const Data = (props) => {
           {name}
         </h2>
 
-        <div className="my-4">
+        <div className="">
           <div>
             <p>
               <span className="cryptoKey">Rank</span> :
@@ -57,11 +58,11 @@ const Data = (props) => {
             </p>
             <p>
               <span className="cryptoKey">Price</span>:
-              <span className="cryptoValueDetails">{price} USD </span>
+              <span className="cryptoValueDetails">${price} </span>
             </p>
-            <p>
-              <span className="cryptoKey">Market Capital</span>:
-              <span className="cryptoValueDetails  ">{marketCap}</span>
+            <p className="flex flex-wrap">
+              <span className="cryptoKey">Market Capital :</span>
+              <span className="cryptoValueDetails  "> {marketCap}</span>
             </p>
           </div>
         </div>
@@ -74,9 +75,10 @@ const Data = (props) => {
             {symbol}
           </p>
         </div>
-        <div>
+        <div className=" my-4">
           <Link
             state={{
+              id,
               HourVolume,
               btcPrice,
               change,
@@ -92,6 +94,7 @@ const Data = (props) => {
               symbol,
               tier,
               sparkline,
+              value,
             }}
             to={`/cryptodetails/${name}`}
             className="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-slate-700 rounded-md hover:bg-slate-500 focus:outline-none focus:ring focus:ring-gray-900 focus:ring-opacity-80"

@@ -4,7 +4,7 @@
 
 @layer components {
   .cryptoKey {
-    @apply text-blue-600  text-xl font-bold px-2;
+    @apply text-blue-600  text-xl font-bold;
   }
   .cryptoValueDetails {
     @apply text-slate-600  text-lg  px-1;
