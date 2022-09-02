@@ -76,6 +76,9 @@ const MoreCryptoDetails = () => {
   // console.log(DataResult);
   // console.log(`https://api.coinranking.com/v2/coin/${id}`);
 
+  console.log(`https://api.coingecko.com/api/v3/coins/${id}`);
+  console.log(id);
+
   return (
     <div>
       <div>

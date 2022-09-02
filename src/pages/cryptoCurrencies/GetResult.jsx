@@ -16,8 +16,6 @@ const GetResult = () => {
   );
   if (!DataResult.length === 0) {
     setAllValue(DataResult.data.coins);
-  } else {
-    console.log("false ");
   }
   return (
     <div>
@@ -61,29 +59,3 @@ const GetResult = () => {
 };
 
 export default GetResult;
-
-/*
- search function
-
- DataResult.data.coins.filter((cryptoData) => {
-                // console.log(cryptoData.name);
-                if (
-                  cryptoData.name
-                    .toLocaleLowerCase()
-                    .includes(UserSearchInput.toLocaleLowerCase())
-                ) {
-                  // return console.log(cryptoData.name);
-                  return DataResult.data;
-                }
-                // if (UserSearchInput == "") return cryptoData;
-                // else if (
-                //   cryptoData.name
-                //     .toLocaleLowerCase()
-                //     .includes(UserSearchInput.toLocaleLowerCase())
-                // ) {
-                //   return cryptoData;
-                // } else {
-                //   return cryptoData;
-                // }
-              // })
-*/

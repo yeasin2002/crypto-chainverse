@@ -15,6 +15,7 @@ import {
   Cash,
   Spinier,
 } from "../../components/layout/Icon";
+import CryptoCarousel from "./CryptoCarousel";
 
 const Hero = () => {
   const [StatsValue, setStatsValue] = useState("");
@@ -53,10 +54,10 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="w-full h-64 lg:w-1/2 lg:h-auto">
-            <div className="w-full h-full bg-cover ">
+          <div className="w-full h-64 lg:w-1/2 lg:h-auto flex justify-center">
+            <div className=" w-56 sm:w-60 md:w-80 lg:w-96">
               <img
-                className="w-3/5 sm:w-[42%] md:w-[48%] lg:w-11/12 h-11/12 m-auto bg-slate-900"
+                className="  w-full h-full m-auto bg-slate-900"
                 src={BannerImg}
                 alt="BannerImg"
               />
@@ -156,6 +157,9 @@ const Hero = () => {
           }
         </div>
         <div className="mb-6 w-full h-4"></div>
+        <div className="w-full h-full">
+          <CryptoCarousel Data={DataResult} />
+        </div>
       </section>
     </>
   );
