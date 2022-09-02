@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import "swiper/css";
 
@@ -37,20 +39,52 @@ const CryptoCarousel = ({ Data }) => {
         {Data.length === 0
           ? ""
           : Data.data.coins.map((element, index) => {
-              // console.log(element)
-              const { uuid, iconUrl, name, change, price, symbol } = element;
+              const {
+                uuid,
+                btcPrice,
+                change,
+                coinrankingUrl,
+                color,
+                iconUrl: iconImg,
+                listedAt,
+                lowVolume,
+                marketCap,
+                name,
+                price,
+                rank,
+                symbol,
+                tier,
+                sparkline,
+              } = element;
+
+              let HourVolume = element["24hVolume"];
               return (
-                <>
-                  <SwiperSlide key={uuid}>
-                    <div
-                      className=" flex  items-center justify-center flex-col"
-                      onClick={(e) => {
-                        console.log(element);
-                      }}
-                    >
+                <SwiperSlide key={uuid}>
+                  <Link
+                    state={{
+                      uuid,
+                      HourVolume,
+                      btcPrice,
+                      change,
+                      coinrankingUrl,
+                      color,
+                      iconImg,
+                      listedAt,
+                      lowVolume,
+                      marketCap,
+                      name,
+                      price,
+                      rank,
+                      symbol,
+                      tier,
+                      sparkline,
+                    }}
+                    to={`/cryptodetails/${name}`}
+                  >
+                    <div className=" flex  items-center justify-center flex-col">
                       <img
                         className=" w-24 h-24 rounded-full"
-                        src={iconUrl}
+                        src={iconImg}
                         alt={name + "logo"}
                       />
                       <h2 className="text-lg md:text-2xl font-semibold my-2">
@@ -62,15 +96,15 @@ const CryptoCarousel = ({ Data }) => {
                             +{change}
                           </span>
                         ) : (
-                          <span className="text-red-800 text-lg ">
-                            {change}
+                          <span className="text-rose-500 text-lg ">
+                            -{change}
                           </span>
                         )}
                       </p>
                       <p>${Number(price).toFixed(2)}</p>
                     </div>
-                  </SwiperSlide>
-                </>
+                  </Link>
+                </SwiperSlide>
               );
             })}
       </Swiper>

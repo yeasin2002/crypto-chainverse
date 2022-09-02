@@ -19,7 +19,11 @@ const News = () => {
     },
   };
   const { DataResult, IsLoading, IsError } = useFetch(url, optionsSearch);
-
+  const ChangeTitle = () => (document.title = "Crypto News");
+  useEffect(() => {
+    ChangeTitle();
+    return ChangeTitle;
+  }, []);
   return (
     <div className="bg-gray-200 min-h-screen">
       <div className="flex flex-col items-center sm:flex-row    justify-between overflow-x-hidden">

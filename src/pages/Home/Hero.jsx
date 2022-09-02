@@ -16,13 +16,18 @@ import {
   Spinier,
 } from "../../components/layout/Icon";
 import CryptoCarousel from "./CryptoCarousel";
+import ListOfCrypto from "./ListOfCrypto";
 
 const Hero = () => {
-  const [StatsValue, setStatsValue] = useState("");
+  const [StatsValue, setStatsValue] = useState([]);
   const { DataResult, IsLoading, IsError } = useFetch(
     "https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0"
   );
-
+  const ChangeTitle = () => (document.title = "Crypto Verse");
+  useEffect(() => {
+    ChangeTitle();
+    return ChangeTitle;
+  }, []);
   return (
     <>
       <section className="bg-slate-900  ">
@@ -159,6 +164,7 @@ const Hero = () => {
         <div className="mb-6 w-full h-4"></div>
         <div className="w-full h-full">
           <CryptoCarousel Data={DataResult} />
+          <ListOfCrypto Data={DataResult} />
         </div>
       </section>
     </>

@@ -9,6 +9,9 @@
   .cryptoValueDetails {
     @apply text-slate-600  text-lg  px-1;
   }
+  .ListShow {
+    @apply grid grid-cols-4 md:grid-cols-4 md:gap-y-2;
+  }
 }
 .active {
   color: teal;

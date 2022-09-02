@@ -13,7 +13,7 @@ import Calculator from "./Calculator";
 const MoreCryptoDetails = () => {
   const location = useLocation();
   const {
-    id,
+    uuid,
     HourVolume,
     btcPrice,
     change,
@@ -29,7 +29,7 @@ const MoreCryptoDetails = () => {
     symbol,
     tier,
     sparkline,
-    value,
+    // value,
   } = location.state;
 
   const statisticsData = [
@@ -40,7 +40,7 @@ const MoreCryptoDetails = () => {
     },
     {
       name: "Price to BTC",
-      status: btcPrice + "BTC",
+      status: btcPrice + " BTC",
       icon: <BitcoinLogo />,
     },
     {
@@ -59,25 +59,11 @@ const MoreCryptoDetails = () => {
       icon: <Market />,
     },
   ];
-
-  /* more data  */
-  // const options = {
-  //   method: "GET",
-  //   url: "https://api.coinranking.com/v2/coin/Qwsogvtv82FCd",
-  //   headers: {
-  //     "x-access-token": "your-api-key",
-  //   },
-  // };
-
-  // const { DataResult, IsLoading, IsError } = useFetch(
-  //   `https://api.coinranking.com/v2/coin/${id}`,
-  //   options
-  // );
-  // console.log(DataResult);
-  // console.log(`https://api.coinranking.com/v2/coin/${id}`);
-
-  console.log(`https://api.coingecko.com/api/v3/coins/${id}`);
-  console.log(id);
+  const ChangeTitle = () => (document.title = name);
+  useEffect(() => {
+    ChangeTitle();
+    return ChangeTitle;
+  }, []);
 
   return (
     <div>
@@ -110,8 +96,9 @@ const MoreCryptoDetails = () => {
           {/*statistics  */}
           <h3 className="text-2xl font-bold text-gray-700">Value statistics</h3>
           <p className="text-base my-2 md:text-lg  text-gray-500">
-            An overview showing the statistics of Aave, such as the base and
-            quote currency, the rank, and trading volume.
+            An overview showing the statistics of{" "}
+            <span className="text-lg font-semibold">{name}</span> , such as the
+            base and quote currency, the rank, and trading volume.
           </p>
         </div>
         <div>
