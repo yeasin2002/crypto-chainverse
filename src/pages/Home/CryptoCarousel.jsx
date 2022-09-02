@@ -1,14 +1,36 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
+
 import "swiper/css";
 
 const CryptoCarousel = ({ Data }) => {
   return (
     <div>
+      <h2 className="text-xl lg:text-2xl mx-auto font-bold p-4">
+        Trending Crypto Currency's
+      </h2>
       <Swiper
-        spaceBetween={20}
-        slidesPerView={3}
-        autoplay
+        modules={[Autoplay]}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          400: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1500: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        }}
         // onSlideChange={() => console.log("slide change")}
         // onSwiper={(swiper) => console.log(swiper)}
       >
