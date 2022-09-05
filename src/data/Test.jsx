@@ -3,16 +3,18 @@ import React from "react";
 const Test = () => {
   const data = [
     {
-      marketCap: 2444564,
+      marketCap: 10,
     },
     {
-      marketCap: 542525,
+      marketCap: 20,
+    },
+    {
+      marketCap: 30,
     },
   ];
 
   let reduce = data.reduce((acc, arrData) => arrData.marketCap + acc.marketCap);
   console.log(reduce);
-  // acc.marketCap +
   return <div>Test</div>;
 };
 

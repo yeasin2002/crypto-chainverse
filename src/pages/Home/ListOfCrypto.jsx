@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
+
 import SearchBox from "./SearchBox";
+import {
+  LeftToRightArrow,
+  RightToLeftArrow,
+} from "../../components/layout/Icon";
 
 const ListOfCrypto = ({ Data }) => {
   const [ListData, setListData] = useState([]);
@@ -11,16 +16,18 @@ const ListOfCrypto = ({ Data }) => {
     }
   }, [Data?.data]);
 
-  //   adding search filter
+  const PrevPage = () => {
+    if (Page <= 1) return;
+    setPage((prePage) => prePage - 1);
+  };
+  const NextPage = () => {
+    if (Page === 5) return;
+    setPage((prePage) => prePage + 1);
+  };
+  const PageItemsHailer = (e) => {
+    setPage(e.target.innerText);
+  };
 
-  // let Filtaring = ListData.filter((dataValue) => {
-  //   if (dataValue.name.toLowerCase().includes(UserInput.toLowerCase)) {
-  //     console.log(dataValue.name.toLowerCase());
-  //     console.log(UserInput.toLowerCase);
-  //     // return dataValue;
-  //   }
-  // });
-  // console.log(Filtaring);
   return (
     <div className="my-6 mx-4">
       <h3 className="text-xl md:text-2xl font-bold my-2 px-6">
@@ -71,6 +78,34 @@ const ListOfCrypto = ({ Data }) => {
             </div>
           );
         })}
+        <div className="flex justify-center items-center gap-x-4 my-6 py-6">
+          <div
+            onClick={PrevPage}
+            className="flex justify-start items-center ListPageNumber"
+          >
+            <RightToLeftArrow />
+          </div>
+          <div className="flex justify-start items-center">
+            {[1, 2, 3, 4, 5].map((PageList) => {
+              return (
+                <div
+                  onClick={(e) => {
+                    PageItemsHailer(e);
+                  }}
+                  className="mx-2 ListPageNumber"
+                >
+                  {PageList}
+                </div>
+              );
+            })}
+          </div>
+          <div
+            onClick={NextPage}
+            className="flex justify-start items-center ListPageNumber"
+          >
+            <LeftToRightArrow />
+          </div>
+        </div>
       </div>
     </div>
   );

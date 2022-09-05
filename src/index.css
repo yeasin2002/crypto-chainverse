@@ -12,6 +12,9 @@
   .ListShow {
     @apply grid grid-cols-4 md:grid-cols-4 md:gap-y-2;
   }
+  .ListPageNumber {
+    @apply bg-slate-700 hover:bg-slate-500 rounded-full p-2;
+  }
 }
 .active {
   color: teal;
