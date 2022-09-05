@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import SearchBox from "./SearchBox";
 import {
   LeftToRightArrow,
   RightToLeftArrow,
@@ -10,6 +9,9 @@ const ListOfCrypto = ({ Data }) => {
   const [ListData, setListData] = useState([]);
   const [UserInput, setUserInput] = useState("");
   const [Page, setPage] = useState(1);
+
+  const marketCapLocations = useRef();
+
   useEffect(() => {
     if (Data?.data?.coins) {
       setListData(Data.data.coins);
@@ -19,23 +21,29 @@ const ListOfCrypto = ({ Data }) => {
   const PrevPage = () => {
     if (Page <= 1) return;
     setPage((prePage) => prePage - 1);
+    window.scrollTo(0, marketCapLocations.current.offsetTop);
   };
   const NextPage = () => {
     if (Page === 5) return;
     setPage((prePage) => prePage + 1);
-  };
-  const PageItemsHailer = (e) => {
-    setPage(e.target.innerText);
+    window.scrollTo(0, marketCapLocations.current.offsetTop);
   };
 
+  const PageItemsHailer = (e) => {
+    if (Page == e) return;
+    setPage(e);
+    window.scrollTo(0, marketCapLocations.current.offsetTop);
+  };
+  let TheStyle;
   return (
     <div className="my-6 mx-4">
-      <h3 className="text-xl md:text-2xl font-bold my-2 px-6">
+      <hr />
+      <h3
+        ref={marketCapLocations}
+        className="text-xl md:text-2xl lg:text-3xl font-bold my-2 px-4 py-6"
+      >
         Cryptocurrency Prices by Market Cap
       </h3>
-      <div className="py-6 px-4">
-        <SearchBox setUserInput={setUserInput} />
-      </div>
       <div id="data">
         <div>
           <div className="ListShow ">
@@ -46,12 +54,6 @@ const ListOfCrypto = ({ Data }) => {
           </div>
         </div>
         {ListData.slice((Page - 1) * 10, (Page - 1) * 10 + 10).map((value) => {
-          // let letReducer = (marketValue) => {
-          //   return ListData.reduce(
-          //     (acc, presentValue) => acc.marketCap + marketValue
-          //   );
-          // };
-          // console.log(letReducer(value.marketCap));
           return (
             <div
               key={value.uuid}
@@ -66,7 +68,8 @@ const ListOfCrypto = ({ Data }) => {
                   />
                 }
               </div>
-              <div> {value.name} </div>
+              <div className="hidden sm:block"> {value.name} </div>
+              <div className="sm:hidden"> {value.symbol} </div>
               <div>
                 {value.change > 0 ? (
                   <span className="text-green-500"> +{value.change} </span>
@@ -78,7 +81,7 @@ const ListOfCrypto = ({ Data }) => {
             </div>
           );
         })}
-        <div className="flex justify-center items-center gap-x-4 my-6 py-6">
+        <div className="flex justify-center items-center gap-x-1 md:gap-x-4 my-6 py-6">
           <div
             onClick={PrevPage}
             className="flex justify-start items-center ListPageNumber"
@@ -86,15 +89,22 @@ const ListOfCrypto = ({ Data }) => {
             <RightToLeftArrow />
           </div>
           <div className="flex justify-start items-center">
-            {[1, 2, 3, 4, 5].map((PageList) => {
+            {[1, 2, 3, 4, 5].map((PageList, index) => {
+              if (Page == PageList) {
+                TheStyle = ` bg-cyan-700 text-slate-200`;
+              } else {
+                TheStyle = `bg-indigo-800 `;
+              }
               return (
-                <div
-                  onClick={(e) => {
-                    PageItemsHailer(e);
-                  }}
-                  className="mx-2 ListPageNumber"
-                >
-                  {PageList}
+                <div key={index}>
+                  <div
+                    onClick={(e) => {
+                      PageItemsHailer(PageList);
+                    }}
+                    className={`mx-2  ListPageNumber  transition-all  ${TheStyle}`}
+                  >
+                    {PageList}
+                  </div>
                 </div>
               );
             })}

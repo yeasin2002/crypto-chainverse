@@ -195,7 +195,7 @@ export const LeftToRightArrow = () => {
   return (
     <svg
       fill="white"
-      className="w-8 h-8"
+      className=" w-7 h-7 sm:w-8 sm:h-8 lg:w-12 lg:h-12"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
     >
@@ -207,7 +207,7 @@ export const RightToLeftArrow = () => {
   return (
     <svg
       fill="white"
-      className="w-8 h-8"
+      className=" w-7 h-7 sm:w-8 sm:h-8 lg:w-12 lg:h-12"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
     >
