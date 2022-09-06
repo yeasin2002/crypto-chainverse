@@ -9,7 +9,7 @@ const DataBox = ({
   return (
     <div className={" border px-4 py-2 rounded-lg mx-4 " + colorStyle}>
       <p className="text-center">{title} </p>
-      <div className="inline-flex items-center justify-center gap-x-2 ">
+      <div className="gap-x-2  inline-flex items-center justify-center">
         <div>{iconValue}</div>
         <div>{dataValue} </div>
       </div>

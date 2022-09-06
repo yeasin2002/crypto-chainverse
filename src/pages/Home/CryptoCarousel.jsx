@@ -5,13 +5,17 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import "swiper/css";
+import Loading from "../../components/layout/Loading";
+import AlertBox from "../../components/layout/AlertBox";
 
-const CryptoCarousel = ({ Data }) => {
+const CryptoCarousel = ({ Data, IsLoading, IsError }) => {
   return (
     <div>
-      <h2 className="text-xl lg:text-2xl mx-auto font-bold p-4">
+      <h2 className="lg:text-2xl p-4 mx-auto text-xl font-bold">
         Trending Crypto Currency's
       </h2>
+      {IsLoading && <Loading />}
+      {IsError && <AlertBox />}
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 2000, disableOnInteraction: false }}
@@ -81,22 +85,22 @@ const CryptoCarousel = ({ Data }) => {
                     }}
                     to={`/cryptodetails/${name}`}
                   >
-                    <div className=" flex  items-center justify-center flex-col">
+                    <div className=" flex flex-col items-center justify-center">
                       <img
                         className=" w-24 h-24 rounded-full"
                         src={iconImg}
                         alt={name + "logo"}
                       />
-                      <h2 className="text-lg md:text-2xl font-semibold my-2">
+                      <h2 className="md:text-2xl my-2 text-lg font-semibold">
                         {name} ( {symbol} )
                       </h2>
                       <p>
                         {change > 1 ? (
-                          <span className="text-green-400 text-lg ">
+                          <span className=" text-lg text-green-400">
                             +{change}
                           </span>
                         ) : (
-                          <span className="text-rose-500 text-lg ">
+                          <span className="text-rose-500  text-lg">
                             -{change}
                           </span>
                         )}

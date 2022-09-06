@@ -8,9 +8,9 @@ const Loading = ({ loadingImages = loaderSvg }) => {
   return (
     <>
       <AnimatePresence>
-        <div className=" flex justify-center items-center  content-center  w-full h-full">
+        <div className=" flex items-center content-center justify-center w-full h-full">
           <img
-            className="w-20 h-20 "
+            className=" w-20 h-20"
             src={loadingImages}
             alt="Loading.........</"
           />
@@ -19,5 +19,4 @@ const Loading = ({ loadingImages = loaderSvg }) => {
     </>
   );
 };
-
 export default Loading;

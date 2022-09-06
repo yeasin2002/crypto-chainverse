@@ -1,31 +1,56 @@
 import React from "react";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-const NewsCard = ({ ampUrl, description, contentUrl, datePublished, name }) => {
+const NewsCard = ({ title, link, description, additionalLinks }) => {
+  let IsMappable;
+
+  if (Array.isArray(additionalLinks)) {
+    IsMappable = true;
+  } else {
+    IsMappable = false;
+  }
+
   return (
-    <div className="md:grid ">
-      <div className="flex justify-center mx-2 my-4">
-        <div className="flex flex-col  md:max-w-xl rounded-lg bg-slate-900 shadow-lg">
-          <img
-            className=" w-10/12 mx-auto  mt-2 rounded-t-md h-[15rem] rounded-b-lg md:rounded-none md:rounded-l-lg"
-            src={contentUrl}
-            alt="images"
-          />
-          <div className="p-6 flex flex-col justify-start">
-            <h5 className="text-gray-200 text-xl font-medium mb-2">{name}</h5>
-            <p className="text-gray-300 text-base mb-4">{description}</p>
-            <p className="text-gray-300 text-xs">{datePublished} </p>
-            <a
-              target="_blank"
-              href={ampUrl}
-              className="text-gray-200 m-2  border border-teal-500 w-28 px-1 py-2 rounded-md text-center"
-            >
-              More Info
-            </a>
-          </div>
+    <div>
+      <div className="dark:bg-gray-800 hover:bg-gray-200 max-w-2xl px-8 py-4 mx-4 my-6 transition-all bg-white rounded-lg shadow-md">
+        <div className="flex items-center justify-between">
+          <span className="dark:text-gray-400 text-sm font-light text-gray-600"></span>
+        </div>
+
+        <div className="mt-2">
+          <p className="dark:text-white hover:text-gray-600 dark:hover:text-gray-200 text-2xl font-bold text-gray-700">
+            {title}
+          </p>
+          <p className="dark:text-gray-300 mt-2 text-gray-600">{description}</p>
+        </div>
+
+        <div className="flex items-center justify-between mt-4">
+          <a
+            target={"_blank"}
+            href={link}
+            className=" border-slate-700 bg-slate-200 hover:bg-slate-50 text-slate-600 px-4 py-2 transition-all border rounded-lg"
+          >
+            Read more
+          </a>
+        </div>
+        <div className="px-2 py-4">
+          {IsMappable &&
+            additionalLinks.map((extraData) => {
+              return (
+                <div key={uuidv4()}>
+                  <a
+                    className="my-4 text-lg text-blue-500"
+                    href={extraData.href}
+                  >
+                    {extraData.text.slice(0, 30)}
+                  </a>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
   );
 };
-
 export default NewsCard;

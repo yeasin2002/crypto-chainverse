@@ -4,16 +4,19 @@
 
 @layer components {
   .cryptoKey {
-    @apply text-blue-600  text-xl font-bold;
+    @apply text-xl font-bold text-blue-600;
   }
   .cryptoValueDetails {
-    @apply text-slate-600  text-lg  px-1;
+    @apply text-slate-600 px-1 text-lg;
   }
   .ListShow {
-    @apply grid grid-cols-4 md:grid-cols-4 md:gap-y-2;
+    @apply md:grid-cols-4 md:gap-y-2 grid grid-cols-4;
   }
   .ListPageNumber {
-    @apply rounded-full py-1 sm:py-2 px-2  sm:px-4 md:px-4  cursor-pointer sm:text-xl font-bold;
+    @apply sm:py-2 sm:px-4 md:px-4 sm:text-xl px-2 py-1 font-bold rounded-full cursor-pointer;
+  }
+  .PageListHeading {
+    @apply md:text-xl lg:text-2xl text-lg font-bold text-gray-100;
   }
 }
 .active {

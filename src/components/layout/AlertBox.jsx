@@ -11,9 +11,9 @@ const AlertBox = () => {
         onClick={() => {
           setIsThere((IsThere) => !IsThere);
         }}
-        className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
+        className="dark:bg-gray-800 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md"
       >
-        <div className="flex items-center justify-center w-12 bg-red-500">
+        <div className="flex items-center justify-center w-20 bg-red-500">
           <svg
             className="w-6 h-6 text-white fill-current"
             viewBox="0 0 40 40"
@@ -25,11 +25,11 @@ const AlertBox = () => {
 
         <div className="px-4 py-2 -mx-3">
           <div className="mx-3">
-            <span className="font-semibold text-red-500 dark:text-red-400">
+            <span className="dark:text-red-400 font-semibold text-red-500">
               Error
             </span>
-            <p className="text-sm text-gray-600 dark:text-gray-200">
-              There is something wrong
+            <p className="dark:text-gray-200 text-sm text-gray-600">
+              Please Check Your Internet Connections Or Refresh The Page
             </p>
           </div>
         </div>

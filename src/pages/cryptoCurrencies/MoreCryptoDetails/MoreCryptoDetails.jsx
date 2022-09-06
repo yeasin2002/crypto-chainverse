@@ -68,16 +68,16 @@ const MoreCryptoDetails = () => {
   return (
     <div>
       <div>
-        <div className="flex   justify-between items-center my-4 px-4   ">
-          <div className="flex  flex-wrap items-center">
+        <div className=" flex items-center justify-between px-4 my-4">
+          <div className="flex flex-wrap items-center">
             <img className="w-10 mx-2" src={iconImg} alt="" />
             <div>
-              <h1 className="text-xl md:text-2xl font-bold">{name} </h1>
+              <h1 className="md:text-2xl text-xl font-bold">{name} </h1>
               <h3>
-                <span className="text-base md:text-lg font-normal">
+                <span className="md:text-lg text-base font-normal">
                   {symbol}
                 </span>
-                <span className="px-1 ml-2  sm:backdrop:ml-2 text-slate-600   border border-slate-700">
+                <span className="sm:backdrop:ml-2 text-slate-600 border-slate-700 px-1 ml-2 border">
                   #{rank}
                 </span>
               </h3>
@@ -86,7 +86,7 @@ const MoreCryptoDetails = () => {
           <div>
             <p>
               $
-              <span className="text-base md:text-xl font-semibold">
+              <span className="md:text-xl text-base font-semibold">
                 {price}
               </span>
             </p>
@@ -95,7 +95,7 @@ const MoreCryptoDetails = () => {
         <div className="mx-2">
           {/*statistics  */}
           <h3 className="text-2xl font-bold text-gray-700">Value statistics</h3>
-          <p className="text-base my-2 md:text-lg  text-gray-500">
+          <p className="md:text-lg my-2 text-base text-gray-500">
             An overview showing the statistics of{" "}
             <span className="text-lg font-semibold">{name}</span> , such as the
             base and quote currency, the rank, and trading volume.
@@ -105,10 +105,10 @@ const MoreCryptoDetails = () => {
           {statisticsData.map((data, index) => {
             return (
               <div
-                className="flex justify-between flex-wrap  my-2 hover:bg-gray-100  border-b py-3 px-4 border-blue-400/40"
+                className="hover:bg-gray-100 border-blue-400/40 flex flex-wrap justify-between px-4 py-3 my-2 border-b"
                 key={index}
               >
-                <div className="flex  flex-wrap gap-x-2">
+                <div className="gap-x-2 flex flex-wrap">
                   <span>{data.icon}</span>
                   <span>{data.name}</span>
                 </div>
@@ -118,12 +118,12 @@ const MoreCryptoDetails = () => {
           })}
         </div>
         <div>
-          <p className="px-2 py-4 text-lg md:text-xl font-semibold md:font-bold">
+          <p className="md:text-xl md:font-bold px-2 py-4 text-lg font-semibold">
             More In
             <a
               href={coinrankingUrl}
               target="_blank"
-              className="text-blue-800 mx-2"
+              className="mx-2 text-blue-800"
             >
               Coin Rank
             </a>
@@ -135,5 +135,4 @@ const MoreCryptoDetails = () => {
     </div>
   );
 };
-
 export default MoreCryptoDetails;

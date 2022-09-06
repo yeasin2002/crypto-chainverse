@@ -38,15 +38,15 @@ const Data = (props) => {
         }}
         className={`max-w-md px-6  md:px-8 mx-2 py-4  mt-16 group  rounded-lg bg-gray-100  dark:bg-gray-800`}
       >
-        <div className="flex justify-center -mt-16 md:justify-end ">
+        <div className="md:justify-end  flex justify-center -mt-16">
           <img
-            className="object-cover  bg-white w-20 h-20 border-2 border-blue-500 rounded-full dark:border-blue-400"
+            className="dark:border-blue-400 object-cover w-20 h-20 bg-white border-2 border-blue-500 rounded-full"
             alt="Testimonial avatar"
             src={iconImg}
           />
         </div>
 
-        <h2 className="mt-2 text-2xl font-semibold text-slate-600 dark:text-white md:mt-0 md:text-3xl">
+        <h2 className="text-slate-600 dark:text-white md:mt-0 md:text-3xl mt-2 text-2xl font-semibold">
           {name}
         </h2>
 
@@ -62,14 +62,14 @@ const Data = (props) => {
             </p>
             <p className="flex flex-wrap">
               <span className="cryptoKey">Market Capital :</span>
-              <span className="cryptoValueDetails  "> {marketCap}</span>
+              <span className="cryptoValueDetails "> {marketCap}</span>
             </p>
           </div>
         </div>
 
         <div className="flex justify-end mt-4">
           <p
-            className="text-xl font-medium  dark:text-blue-300 "
+            className="dark:text-blue-300  text-xl font-medium"
             style={{ color: color }}
           >
             {symbol}
@@ -97,7 +97,7 @@ const Data = (props) => {
               value,
             }}
             to={`/cryptodetails/${name}`}
-            className="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-slate-700 rounded-md hover:bg-slate-500 focus:outline-none focus:ring focus:ring-gray-900 focus:ring-opacity-80"
+            className="bg-slate-700 hover:bg-slate-500 focus:outline-none focus:ring focus:ring-gray-900 focus:ring-opacity-80 px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform rounded-md"
           >
             Learn more
           </Link>
@@ -106,5 +106,4 @@ const Data = (props) => {
     </>
   );
 };
-
 export default Data;

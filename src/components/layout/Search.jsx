@@ -16,11 +16,13 @@ const Search = ({ setUserSearchInput, doAnimations }) => {
           opacity: 1,
         }}
       >
-        <div className="mb-3 xl:w-96">
-          <div className="input-group relative flex  items-stretch w-full mb-4">
+        <div className="xl:w-96 mb-3">
+          <div className="input-group relative flex items-stretch w-full mb-4">
             <input
               onChange={(e) => {
-                setUserSearchInput(e.target.value);
+                setTimeout(() => {
+                  setUserSearchInput(e.target.value);
+                }, 500);
               }}
               type="search"
               className="form-control rounded-md relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"

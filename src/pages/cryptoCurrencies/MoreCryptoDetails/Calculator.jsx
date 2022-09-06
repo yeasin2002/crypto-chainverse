@@ -3,8 +3,8 @@ import React from "react";
 const Calculator = () => {
   return (
     <div className="my-6">
-      <h1 className="text-lg font-bold md:text-2xl">Calculator</h1>
-      <p className="text-lg  ">
+      <h1 className="md:text-2xl text-lg font-bold">Calculator</h1>
+      <p className=" text-lg">
         Use the calculator to convert real-time prices between all available
         cryptocurrencies and fiat.
       </p>
@@ -12,7 +12,7 @@ const Calculator = () => {
         <div>
           <input
             type="number"
-            className=" px-2 py-4 border border-slate-800"
+            className=" border-slate-800 px-2 py-4 border"
             id=""
           />
           <select name="choice">

@@ -30,46 +30,46 @@ const Hero = () => {
   }, []);
   return (
     <>
-      <section className="bg-slate-900  ">
+      <section className="bg-slate-900 ">
         <div className="lg:flex">
           <div className="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
             <div className="max-w-xl">
-              <h2 className="text-2xl font-semibold text-gray-300 dark:text-white lg:text-3xl">
+              <h2 className="dark:text-white lg:text-3xl text-2xl font-semibold text-gray-300">
                 Get Real Time Information About
-                <span className="text-blue-600 dark:text-blue-400 mx-2">
+                <span className="dark:text-blue-400 mx-2 text-blue-600">
                   Cryptocurrency
                 </span>
               </h2>
 
-              <p className="mt-2 text-sm text-gray-400 dark:text-gray-400 lg:text-base">
+              <p className="dark:text-gray-400 lg:text-base mt-2 text-sm text-gray-400">
                 A digital currency in which transactions are verified and
                 records maintained by a decentralized system using cryptography,
                 rather than by a centralized authority:
               </p>
 
-              <div className="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
+              <div className="lg:space-y-0 lg:flex-row flex flex-col mt-6 space-y-3">
                 <Link
                   to="/crypto"
                   href="#"
-                  className="block px-3 border-2  border-slate-800 py-2 text-sm font-semibold text-center text-slate-800 transition-colors duration-200 transform bg-gray-200 rounded-md hover:text-slate-100  hover:bg-slate-800 hover:border-slate-200"
+                  className="border-slate-800 text-slate-800 hover:text-slate-100 hover:bg-slate-800 hover:border-slate-200 md:text-xl block px-3 py-2 text-sm font-semibold text-center transition-colors duration-200 transform bg-gray-200 border-2 rounded-md"
                 >
-                  See Crypto Currencies
+                  All Cryptocurrency
                 </Link>
               </div>
             </div>
           </div>
 
-          <div className="w-full h-64 lg:w-1/2 lg:h-auto flex justify-center">
-            <div className=" w-56 sm:w-60 md:w-80 lg:w-96">
+          <div className="lg:w-1/2 lg:h-auto flex justify-center w-full h-64">
+            <div className=" sm:w-60 md:w-80 lg:w-96 w-56">
               <img
-                className="  w-full h-full m-auto bg-slate-900"
+                className=" bg-slate-900 w-full h-full m-auto"
                 src={BannerImg}
                 alt="BannerImg"
               />
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-2 justify-center">
+        <div className="sm:grid-cols-2 lg:grid-cols-3 grid justify-center grid-cols-1 gap-2">
           {
             <>
               {/*  */}
@@ -161,14 +161,21 @@ const Hero = () => {
             </>
           }
         </div>
-        <div className="mb-6 w-full h-4"></div>
+        <div className="w-full h-4 mb-6"></div>
         <div className="w-full h-full">
-          <CryptoCarousel Data={DataResult} />
-          <ListOfCrypto Data={DataResult} />
+          <CryptoCarousel
+            Data={DataResult}
+            IsLoading={IsLoading}
+            IsError={IsError}
+          />
+          <ListOfCrypto
+            Data={DataResult}
+            IsLoading={IsLoading}
+            IsError={IsError}
+          />
         </div>
       </section>
     </>
   );
 };
-
 export default Hero;

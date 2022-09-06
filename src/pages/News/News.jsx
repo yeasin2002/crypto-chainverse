@@ -1,59 +1,44 @@
 import React, { useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
+import { v4 as uuidv4 } from "uuid";
+
 import NewsCard from "./NewsCard";
 import Search from "../../components/layout/Search";
 import Loading from "../../components/layout/Loading";
+import AlertBox from "../../components/layout/AlertBox";
+import useNewsData from "./useNewsData";
 
 const News = () => {
   const [UserSearchInput, setUserSearchInput] = useState("crypto");
-  //
-  // data fetching
-  let url = `https://bing-news-search1.p.rapidapi.com/news/search?q=${UserSearchInput}&safeSearch=Off&textFormat=Raw`;
+  const [MainNews, setMainNews] = useState([]);
+  const { NewsData, LoadingLog, ErrorLog } = useNewsData(UserSearchInput);
 
-  const optionsSearch = {
-    method: "GET",
-    headers: {
-      "X-BingApis-SDK": "true",
-      "X-RapidAPI-Key": "508a20f86bmsh3a8ae2c62ebb4ffp1e84aajsn1ecf49b70c48",
-      "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-    },
-  };
-  const { DataResult, IsLoading, IsError } = useFetch(url, optionsSearch);
-  const ChangeTitle = () => (document.title = "Crypto News");
-  useEffect(() => {
-    ChangeTitle();
-    return ChangeTitle;
-  }, []);
   return (
-    <div className="bg-gray-200 min-h-screen">
-      <div className="flex flex-col items-center sm:flex-row    justify-between overflow-x-hidden">
-        <h2 className="text-slate-600 font-bold text-2xl mx-2 my-4">
+    <div className="min-h-screen bg-gray-200">
+      <div className="sm:flex-row flex flex-col items-center justify-between overflow-x-hidden">
+        <h2 className="text-slate-600 mx-2 my-4 text-2xl font-bold">
           Latest Crypto News
         </h2>
         <Search setUserSearchInput={setUserSearchInput} doAnimations />
       </div>
-      {IsLoading ? <Loading /> : ""}
-      <div className="grid lg:grid-cols-2">
-        {!IsLoading
-          ? DataResult.value.map((data, index) => {
-              if (!data.image) return;
-              return (
-                <div key={index}>
-                  <NewsCard
-                    ampUrl={data.url}
-                    description={data.description}
-                    contentUrl={data.image.thumbnail.contentUrl}
-                    datePublished={data.datePublished}
-                    name={data.name}
-                    // name={data.name}
-                  />
-                </div>
-              );
-            })
-          : ""}
+      {ErrorLog && <AlertBox />}
+      {LoadingLog && <Loading />}
+      <div className="lg:grid-cols-2 grid grid-cols-1">
+        {!LoadingLog &&
+          NewsData.map((data) => {
+            return (
+              <div key={uuidv4()}>
+                <NewsCard
+                  title={data.title}
+                  link={data.link}
+                  description={data.description}
+                  additionalLinks={data.additional_links}
+                />
+              </div>
+            );
+          })}
       </div>
     </div>
   );
 };
-
 export default News;

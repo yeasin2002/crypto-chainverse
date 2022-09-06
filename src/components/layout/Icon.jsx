@@ -191,11 +191,17 @@ export const Market = () => {
     </svg>
   );
 };
-export const LeftToRightArrow = () => {
+export const LeftToRightArrow = ({ page }) => {
+  let Opacity;
+  if (page == 5) {
+    Opacity = ` opacity-25`;
+  } else {
+    Opacity = `opacity-100`;
+  }
   return (
     <svg
       fill="white"
-      className=" w-7 h-7 sm:w-8 sm:h-8 lg:w-12 lg:h-12"
+      className={` w-7 h-7 sm:w-8 sm:h-8 lg:w-12 lg:h-12 ${Opacity}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
     >
@@ -203,11 +209,17 @@ export const LeftToRightArrow = () => {
     </svg>
   );
 };
-export const RightToLeftArrow = () => {
+export const RightToLeftArrow = ({ page }) => {
+  let Opacity;
+  if (page == 1) {
+    Opacity = ` opacity-25`;
+  } else {
+    Opacity = `opacity-100`;
+  }
   return (
     <svg
       fill="white"
-      className=" w-7 h-7 sm:w-8 sm:h-8 lg:w-12 lg:h-12"
+      className={` w-7 h-7 sm:w-8 sm:h-8 lg:w-12 lg:h-12  ${Opacity}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
     >
