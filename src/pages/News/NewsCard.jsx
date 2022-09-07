@@ -1,55 +1,69 @@
 import React from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { Clock } from "../../components/layout/Icon";
 
-const NewsCard = ({ title, link, description, additionalLinks }) => {
-  let IsMappable;
+const NewsCard = ({
+  guidislink,
+  title,
+  summary,
+  published,
+  link,
 
-  if (Array.isArray(additionalLinks)) {
-    IsMappable = true;
-  } else {
-    IsMappable = false;
-  }
-
+  source,
+  publishedParsed,
+}) => {
+  // lg:grid-cols-2 grid grid-cols-1
   return (
-    <div>
-      <div className="dark:bg-gray-800 hover:bg-gray-200 max-w-2xl px-8 py-4 mx-4 my-6 overflow-x-hidden transition-all bg-white rounded-lg shadow-md">
+    <div className="group md:mx-8 md:my-6 mx-2 my-4">
+      <div className="dark:bg-gray-800 max-w-screen px-8 py-4 bg-white rounded-lg shadow-md">
         <div className="flex items-center justify-between">
-          <span className="dark:text-gray-400 text-sm font-light text-gray-600"></span>
+          <div className="gap-x-2 flex items-center">
+            <span>
+              <Clock />
+            </span>
+            <span className="dark:text-gray-400 text-sm font-light text-gray-600">
+              {published}
+            </span>
+          </div>
         </div>
 
         <div className="mt-2">
-          <p className="dark:text-white font-Oswald hover:text-gray-600 dark:hover:text-gray-200 text-2xl font-bold text-gray-700">
+          <a
+            href="#"
+            className="dark:text-white font-Acme group-hover:text-gray-500 text-2xl font-bold text-gray-700 transition-all"
+          >
             {title}
-          </p>
-          <p className="dark:text-gray-300 font-Acme mt-2 text-gray-600">
-            {description}
-          </p>
+          </a>
+          <p
+            className="dark:text-gray-300 font-Oswald mt-2 text-gray-600"
+            dangerouslySetInnerHTML={{ __html: summary }}
+          ></p>
         </div>
 
         <div className="flex items-center justify-between mt-4">
           <a
             target={"_blank"}
             href={link}
-            className=" border-slate-700 font-Lobster bg-slate-200 hover:bg-slate-50 text-slate-600 px-4 py-2 transition-all border rounded-lg"
+            className="dark:text-blue-400 hover:underline font-Ubuntu text-blue-600"
           >
             Read more
           </a>
-        </div>
-        <div className="px-2 py-4">
-          {IsMappable &&
-            additionalLinks.map((extraData) => {
-              return (
-                <div key={uuidv4()}>
-                  <a
-                    className="font-Flower my-4 text-lg text-blue-500"
-                    href={extraData.href}
-                  >
-                    {extraData.text.slice(0, 30)}
-                  </a>
-                </div>
-              );
-            })}
+
+          <div className="flex items-center">
+            {/* <img
+              className="sm:block hidden object-cover w-10 h-10 mx-4 rounded-full"
+              src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=40&q=80"
+              alt="avatar"
+            /> */}
+            <a
+              target={"_blank"}
+              href={source.href}
+              className="hover:bg-gray-500 font-Righteous px-3 py-1 text-sm font-light font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer"
+            >
+              {source.title}
+            </a>
+          </div>
         </div>
       </div>
     </div>

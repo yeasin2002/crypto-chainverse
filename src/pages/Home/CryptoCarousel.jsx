@@ -60,13 +60,11 @@ const CryptoCarousel = ({ Data, IsLoading, IsError }) => {
                 tier,
                 sparkline,
               } = element;
-
               let HourVolume = element["24hVolume"];
               return (
                 <SwiperSlide key={uuid}>
                   <Link
                     state={{
-                      uuid,
                       HourVolume,
                       btcPrice,
                       change,

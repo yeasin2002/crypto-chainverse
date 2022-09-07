@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { v4 as uuid } from "uuid";
 
 import {
   HandleDollar,
@@ -30,7 +29,6 @@ const MoreCryptoDetails = () => {
     symbol,
     tier,
     sparkline,
-    // value,
   } = location.state;
 
   const statisticsData = [

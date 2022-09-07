@@ -46,7 +46,7 @@ const Data = (props) => {
           />
         </div>
 
-        <h2 className="text-slate-600 font-Russo dark:text-white md:mt-0 md:text-3xl mt-2 text-2xl font-semibold">
+        <h2 className="text-slate-600 font-Russo dark:text-white md:mt-0 md:text-3xl mt-2 text-2xl font-light font-semibold">
           {name}
         </h2>
 
