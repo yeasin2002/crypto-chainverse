@@ -25,10 +25,10 @@ const AlertBox = () => {
 
         <div className="px-4 py-2 -mx-3">
           <div className="mx-3">
-            <span className="dark:text-red-400 font-semibold text-red-500">
+            <span className="dark:text-red-400 font-Prompt font-semibold text-red-500">
               Error
             </span>
-            <p className="dark:text-gray-200 text-sm text-gray-600">
+            <p className="dark:text-gray-200 font-Acme  text-sm md:text-xl text-gray-600">
               Please Check Your Internet Connections Or Refresh The Page
             </p>
           </div>

@@ -11,7 +11,7 @@ import AlertBox from "../../components/layout/AlertBox";
 const CryptoCarousel = ({ Data, IsLoading, IsError }) => {
   return (
     <div>
-      <h2 className="lg:text-2xl p-4 mx-auto text-xl font-bold">
+      <h2 className="lg:text-2xl font-Russo font-bold0 p-4 mx-auto text-xl">
         Trending Crypto Currency's
       </h2>
       {IsLoading && <Loading />}
@@ -91,21 +91,21 @@ const CryptoCarousel = ({ Data, IsLoading, IsError }) => {
                         src={iconImg}
                         alt={name + "logo"}
                       />
-                      <h2 className="md:text-2xl my-2 text-lg font-semibold">
+                      <h2 className="md:text-2xl font-Oswald my-2 text-lg font-semibold">
                         {name} ( {symbol} )
                       </h2>
                       <p>
                         {change > 1 ? (
-                          <span className=" text-lg text-green-400">
+                          <span className=" font-Oswald text-lg text-green-400">
                             +{change}
                           </span>
                         ) : (
-                          <span className="text-rose-500  text-lg">
-                            -{change}
+                          <span className="text-rose-500 font-Oswald text-lg">
+                            {change}
                           </span>
                         )}
                       </p>
-                      <p>${Number(price).toFixed(2)}</p>
+                      <p className="font-Oswald">${Number(price).toFixed(2)}</p>
                     </div>
                   </Link>
                 </SwiperSlide>

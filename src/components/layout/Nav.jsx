@@ -6,7 +6,7 @@ import CryptoLogo from "../../assets/images/cryptoLogo.svg";
 const Nav = () => {
   return (
     <div>
-      <nav className="bg-slate-900  shadow">
+      <nav className="bg-slate-900 shadow">
         <div className=" flex items-center justify-between px-6 py-4 mx-auto">
           <div className="flex items-center justify-between">
             <Link to={"/"}>
@@ -20,7 +20,7 @@ const Nav = () => {
             <div className="md:flex-row md:mx-6 gap-x-2 flex">
               <NavLink
                 to={"/"}
-                className="dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0 my-1 text-sm font-medium text-gray-200 transition-colors duration-200 transform"
+                className="dark:text-gray-200 font-Prompt md:text-lg lg:text-xl hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0 my-1 text-sm font-medium font-bold tracking-wider text-gray-200 transition-colors duration-200 transform"
                 href="#"
               >
                 Home
@@ -28,14 +28,14 @@ const Nav = () => {
 
               <NavLink
                 to={"/crypto"}
-                className="dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0 my-1 text-sm font-medium text-gray-200 transition-colors duration-200 transform"
+                className="dark:text-gray-200 font-Prompt md:text-lg lg:text-xl hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0 my-1 text-sm font-medium font-bold tracking-wider text-gray-200 transition-colors duration-200 transform"
                 href="#"
               >
                 CryptoCurrencies
               </NavLink>
               <NavLink
                 to={"news"}
-                className="dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0 my-1 text-sm font-medium text-gray-200 transition-colors duration-200 transform"
+                className="dark:text-gray-200 font-Prompt md:text-lg lg:text-xl hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0 my-1 text-sm font-medium font-bold tracking-wider text-gray-200 transition-colors duration-200 transform"
                 href="#"
               >
                 News

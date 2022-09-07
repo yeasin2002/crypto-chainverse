@@ -64,14 +64,14 @@ const ListOfCrypto = ({ Data, IsLoading, IsError }) => {
       <hr />
       <h3
         ref={marketCapLocations}
-        className="md:text-2xl lg:text-3xl px-4 py-6 my-2 text-xl font-bold"
+        className="md:text-2xl lg:text-3xl font-Russo px-4 py-6 my-2 text-xl font-bold"
       >
         Cryptocurrency Prices by Market Capital
       </h3>
       <div className="gap-x-4 flex items-center justify-end py-4 my-4">
         <label
           htmlFor="order"
-          className="md:text-2xl lg:text-2xl text-lg font-bold"
+          className="md:text-2xl lg:text-2xl font-Kalam text-lg font-bold"
         >
           Sort By
         </label>
@@ -106,7 +106,7 @@ const ListOfCrypto = ({ Data, IsLoading, IsError }) => {
             return (
               <div
                 key={value.uuid}
-                className="ListShow border-slate-700 hover:bg-slate-800  items-center justify-center py-2 my-4 transition-all border-b rounded-lg"
+                className="ListShow border-slate-700 hover:bg-slate-800 items-center justify-center py-2 my-4 transition-all border-b rounded-lg"
               >
                 <div>
                   {
@@ -117,16 +117,26 @@ const ListOfCrypto = ({ Data, IsLoading, IsError }) => {
                     />
                   }
                 </div>
-                <div className="sm:block hidden"> {value.name} </div>
-                <div className="sm:hidden"> {value.symbol} </div>
+                <div className="sm:block font-Ubuntu hidden font-bold">
+                  {value.name}
+                </div>
+                <div className="sm:hidden font-Ubuntu font-bold">
+                  {value.symbol}
+                </div>
                 <div>
                   {value.change > 0 ? (
-                    <span className="text-green-500"> +{value.change} </span>
+                    <span className="font-Pacifico lg:font-2xl text-green-500">
+                      +{value.change}
+                    </span>
                   ) : (
-                    <span className="text-red-600"> {value.change} </span>
+                    <span className="font-Pacifico lg:font-2xl text-red-600">
+                      {value.change}
+                    </span>
                   )}
                 </div>
-                <div> ${value.marketCap.slice(0, 6)} Millions </div>
+                <div className="font-Oswald">
+                  ${value.marketCap.slice(0, 6)} Millions
+                </div>
               </div>
             );
           })}
@@ -153,7 +163,7 @@ const ListOfCrypto = ({ Data, IsLoading, IsError }) => {
                       onClick={(e) => {
                         PageItemsHailer(PageList);
                       }}
-                      className={`mx-2  ListPageNumber  transition-all  ${TheStyle}`}
+                      className={`mx-2  ListPageNumber  transition-all font-Permanent  ${TheStyle}`}
                     >
                       {PageList}
                     </div>
@@ -164,7 +174,7 @@ const ListOfCrypto = ({ Data, IsLoading, IsError }) => {
 
             <div
               onClick={NextPage}
-              className="ListPageNumber  flex items-center justify-start"
+              className="ListPageNumber flex items-center justify-start"
             >
               <LeftToRightArrow page={Page} />
             </div>

@@ -1,13 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Combo&family=Indie+Flower&family=Kalam&family=Lobster&family=Oswald:wght@300&family=Pacifico&family=Permanent+Marker&family=Playfair+Display:ital,wght@1,500&family=Prompt:ital,wght@1,300&family=Righteous&family=Russo+One&family=Satisfy&family=Ubuntu:ital,wght@1,300&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
   .cryptoKey {
-    @apply text-xl font-bold text-blue-600;
+    @apply font-Lobster text-xl font-bold tracking-wider text-blue-600;
   }
   .cryptoValueDetails {
-    @apply text-slate-600 px-1 text-lg;
+    @apply text-slate-600 font-Oswald px-1 text-lg;
   }
   .ListShow {
     @apply md:grid-cols-4 md:gap-y-2 grid grid-cols-4;
@@ -16,7 +18,7 @@
     @apply sm:py-2 sm:px-4 md:px-4 sm:text-xl px-2 py-1 font-bold rounded-full cursor-pointer;
   }
   .PageListHeading {
-    @apply md:text-xl lg:text-2xl text-lg font-bold text-gray-100;
+    @apply md:text-xl lg:text-2xl font-Righteous text-lg font-bold tracking-wider text-gray-100;
   }
 }
 .active {

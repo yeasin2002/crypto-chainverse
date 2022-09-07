@@ -34,14 +34,14 @@ const Hero = () => {
         <div className="lg:flex">
           <div className="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
             <div className="max-w-xl">
-              <h2 className="dark:text-white lg:text-3xl text-2xl font-semibold text-gray-300">
+              <h2 className="dark:text-white lg:text-3xl font-Kalam text-2xl font-semibold text-gray-300">
                 Get Real Time Information About
-                <span className="dark:text-blue-400 mx-2 text-blue-600">
+                <span className="dark:text-blue-400 font-Prompt mx-2 text-blue-600">
                   Cryptocurrency
                 </span>
               </h2>
 
-              <p className="dark:text-gray-400 lg:text-base mt-2 text-sm text-gray-400">
+              <p className="dark:text-gray-400 font-Acme lg: lg:text-xl mt-2 text-sm text-gray-400">
                 A digital currency in which transactions are verified and
                 records maintained by a decentralized system using cryptography,
                 rather than by a centralized authority:
@@ -51,7 +51,7 @@ const Hero = () => {
                 <Link
                   to="/crypto"
                   href="#"
-                  className="border-slate-800 text-slate-800 hover:text-slate-100 hover:bg-slate-800 hover:border-slate-200 md:text-xl block px-3 py-2 text-sm font-semibold text-center transition-colors duration-200 transform bg-gray-200 border-2 rounded-md"
+                  className="border-slate-800 text-slate-800 font-Combo hover:text-slate-100 hover:bg-slate-800 hover:border-slate-200 md:text-xl block px-3 py-2 text-sm font-semibold text-center transition-colors duration-200 transform bg-gray-200 border-2 rounded-md"
                 >
                   All Cryptocurrency
                 </Link>
@@ -69,7 +69,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="sm:grid-cols-2 lg:grid-cols-3 grid justify-center grid-cols-1 gap-2">
+        <div className="sm:grid-cols-2 lg:grid-cols-3  grid justify-center grid-cols-1 gap-2">
           {
             <>
               {/*  */}
