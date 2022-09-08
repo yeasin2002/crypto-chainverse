@@ -82,9 +82,9 @@ const ListOfCrypto = ({ Data, IsLoading, IsError }) => {
           onChange={selectedHandler}
         >
           <option value="a2z" defaultValue>
-            A To Z
+             Z To A
           </option>
-          <option value="z2a">Z To A</option>
+          <option value="z2a">A To Z</option>
         </select>
       </div>
       <div id="data">

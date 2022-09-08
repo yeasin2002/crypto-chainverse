@@ -11,12 +11,10 @@ import useImg from "./useImg";
 
 const News = () => {
   const [UserSearchInput, setUserSearchInput] = useState("crypto");
-  const [MainNews, setMainNews] = useState([]);
   const NewsStatement = useNewsData(UserSearchInput);
-  const Statement = useImg(UserSearchInput);
 
-  const { result, LoadingState, ErrorState } = Statement;
-  const { NewsValue, NewLoading, NewsErr } = NewsStatement;
+  const { NewsValue, NewLoading, NewsErr, ErrorLog, ErrorLogMsg } =
+    NewsStatement;
 
   return (
     <div className="min-h-screen bg-gray-200">
@@ -28,8 +26,9 @@ const News = () => {
       </div>
       {NewsErr && <AlertBox />}
       {NewLoading && <Loading />}
+
       <div className="">
-        {!NewLoading &&
+        {NewsValue &&
           NewsValue.map((data, index) => {
             return (
               <div key={uuidv4()}>
@@ -51,4 +50,3 @@ const News = () => {
   );
 };
 export default News;
-// img={result.image_results[index].image.src}

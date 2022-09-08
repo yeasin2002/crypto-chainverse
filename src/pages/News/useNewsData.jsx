@@ -7,34 +7,54 @@ const useNewsData = (UserSearchInput) => {
   const [NewLoading, setNewLoading] = useState(true);
   const [NewsErr, setNewsErr] = useState(false);
 
-  const GetNews = () => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-User-Agent": "desktop",
-        "X-Proxy-Location": "IE",
-        "X-RapidAPI-Key": "508a20f86bmsh3a8ae2c62ebb4ffp1e84aajsn1ecf49b70c48",
-        "X-RapidAPI-Host": "google-search3.p.rapidapi.com",
-      },
-    };
+  const [ErrorLog, setErrorLog] = useState("");
+  const [ErrorLogMsg, setErrorLogMsg] = useState(false);
 
-    fetch(`https://google-search3.p.rapidapi.com/api/v1/news/q=${UserSearchInput}`, options)
-      .then((response) => response.json())
-      .then((data) => {
-        setNewsValue(data.entries);
-        setNewLoading(false);
-      })
-      .catch((err) => {
-        setNewsErr(true);
-        setNewLoading(false);
-      });
+  const GetNews = () => {
+    try {
+      const options = {
+        method: "GET",
+        headers: {
+          "X-User-Agent": "desktop",
+          "X-Proxy-Location": "IE",
+          "X-RapidAPI-Key":
+            "508a20f86bmsh3a8ae2c62ebb4ffp1e84aajsn1ecf49b70c48",
+          "X-RapidAPI-Host": "google-search3.p.rapidapi.com",
+        },
+      };
+
+      fetch(
+        `https://google-search3.p.rapidapi.com/api/v1/news/q=${UserSearchInput}`,
+        options
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw Error("Unable to fetch Data");
+          } else {
+            response.json();
+          }
+        })
+        .then((data) => {
+          setNewsValue(data.entries);
+          setNewLoading(false);
+        })
+        .catch((err) => {
+          setNewsErr(true);
+          setNewLoading(false);
+          setErrorLog(err.message);
+        });
+    } catch {
+      setErrorLogMsg(true);
+      setErrorLog(err.message);
+      setNewsErr(false);
+    }
   };
   useEffect(() => {
     GetNews();
     return GetNews();
   }, [UserSearchInput]);
 
-  return { NewsValue, NewLoading, NewsErr };
+  return { NewsValue, NewLoading, NewsErr, ErrorLog, ErrorLogMsg };
 };
 
 export default useNewsData;

@@ -28,8 +28,16 @@ const AlertBox = () => {
             <span className="dark:text-red-400 font-Prompt font-semibold text-red-500">
               Error
             </span>
-            <p className="dark:text-gray-200 font-Acme  text-sm md:text-xl text-gray-600">
+            <p className=" font-Acme md:text-xl text-sm text-gray-600">
               Please Check Your Internet Connections Or Refresh The Page
+            </p>
+
+            <p className=" font-Acme md:text-xl my-4 text-sm text-gray-600">
+              OR
+            </p>
+            <p className=" font-Acme md:text-xl text-sm text-gray-600">
+              Too many requests in a given amount of time ("rate limiting").
+              <span> ( Free API)</span>
             </p>
           </div>
         </div>
@@ -37,5 +45,4 @@ const AlertBox = () => {
     </>
   );
 };
-
 export default AlertBox;

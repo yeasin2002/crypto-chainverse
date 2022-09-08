@@ -72,7 +72,7 @@ const GetResult = () => {
           );
         })}
       </div>
-    </div>
+     </div>
   );
 };
 
