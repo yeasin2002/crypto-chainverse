@@ -69,7 +69,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="sm:grid-cols-2 lg:grid-cols-3  grid justify-center grid-cols-1 gap-2">
+        <div className="sm:grid-cols-2 lg:grid-cols-3 grid justify-center grid-cols-1 gap-2">
           {
             <>
               {/*  */}
@@ -82,7 +82,7 @@ const Hero = () => {
                       <Spinier />
                     </div>
                   ) : (
-                    DataResult.data.stats.total
+                    DataResult?.data?.stats?.total
                   )
                 }
                 colorStyle=" border-teal-600"
@@ -97,7 +97,7 @@ const Hero = () => {
                       <Spinier />
                     </div>
                   ) : (
-                    DataResult.data.stats.total24hVolume
+                    DataResult?.data?.stats?.total24hVolume
                   )
                 }
                 colorStyle=" border-teal-600"
@@ -111,7 +111,7 @@ const Hero = () => {
                       <Spinier />
                     </div>
                   ) : (
-                    DataResult.data.stats.totalCoins
+                    DataResult?.data?.stats?.totalCoins
                   )
                 }
                 colorStyle=" border-teal-600"
@@ -125,7 +125,7 @@ const Hero = () => {
                       <Spinier />
                     </div>
                   ) : (
-                    DataResult.data.stats.totalExchanges
+                    DataResult?.data?.stats?.totalExchanges
                   )
                 }
                 colorStyle=" border-teal-600"
@@ -139,7 +139,7 @@ const Hero = () => {
                       <Spinier />
                     </div>
                   ) : (
-                    DataResult.data.stats.totalMarketCap
+                    DataResult?.data?.stats?.totalMarketCap
                   )
                 }
                 colorStyle=" border-teal-600"
@@ -153,7 +153,7 @@ const Hero = () => {
                       <Spinier />
                     </div>
                   ) : (
-                    DataResult.data.stats.totalMarkets
+                    DataResult?.data?.stats?.totalMarkets
                   )
                 }
                 colorStyle=" border-teal-600"

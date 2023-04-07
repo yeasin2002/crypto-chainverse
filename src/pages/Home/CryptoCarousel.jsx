@@ -42,7 +42,7 @@ const CryptoCarousel = ({ Data, IsLoading, IsError }) => {
       >
         {Data.length === 0
           ? ""
-          : Data.data.coins.map((element, index) => {
+          : Data?.data?.coins.map((element, index) => {
               const {
                 uuid,
                 btcPrice,

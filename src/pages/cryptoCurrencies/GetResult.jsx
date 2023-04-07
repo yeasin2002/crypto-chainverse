@@ -17,7 +17,7 @@ const GetResult = () => {
   const DataHandler = () => {
     if (DataResult.length === 0) return;
     else {
-      return setAllValue(DataResult.data.coins);
+      return setAllValue(DataResult?.data?.coins);
     }
   };
   useEffect(() => {
@@ -72,7 +72,7 @@ const GetResult = () => {
           );
         })}
       </div>
-     </div>
+    </div>
   );
 };
 

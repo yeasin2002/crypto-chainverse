@@ -17,6 +17,7 @@ const useFetch = (url, secondPara = options) => {
     fetch(url, secondPara)
       .then((response) => response.json())
       .then((response) => {
+        console.log(response);
         setDataResult(response);
         setIsLoading(false);
       })
